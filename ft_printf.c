@@ -6,7 +6,7 @@
 /*   By: abbahoua <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/26 13:40:33 by abbahoua          #+#    #+#             */
-/*   Updated: 2021/11/30 18:48:28 by abbahoua         ###   ########.fr       */
+/*   Updated: 2021/12/03 10:41:29 by abbahoua         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -43,23 +43,23 @@ int	ft_printf(const char *s, ...)
 
 	va_start (ptr, s);
 	i = 0;
-	len = 0;
+	g_len = 0;
 	while (s[i])
 	{
 		if (s[i] != '%')
-			ft_type(ptr, s[i]);
+			ft_putchar(s[i]);
 		else
 			ft_type(ptr, s[++i]);
 		i++;
 	}
 	va_end(ptr);
-	return (len);
+	return (g_len);
 }
 
 /*int main()
 {
 	//char a = 'a';
-	//void *s = a;
-	printf(" %s \n", "-");
-	ft_printf(" %s \n", "-");
+	//char *s = &a;
+	printf("%%	\n");
+	ft_printf("%% \n");
 }*/
